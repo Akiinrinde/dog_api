@@ -1,15 +1,16 @@
 import express from "express"
-import * as BreedController from "../controllers/breed.controller"
+import {BreedController} from "../controllers/breed.controller"
 
 const router = express()
+const breedController = new BreedController()
 
-router.get("/", BreedController.getBreeds);
-router.get("/:id", BreedController.getBreed);
+router.get("/", breedController.getBreeds);
+router.get("/:id", breedController.getBreed);
 
-router.patch("/:id", BreedController.updateBreed); 
+router.patch("/:id", breedController.updateBreed); 
 
-router.post("/", BreedController.createBreed);
+router.post("/", breedController.createBreed);
 
-router.delete("/:id", BreedController.deleteBreed);
+router.delete("/:id", breedController.deleteBreed);
 
-export default router
+export const breedRoute = router

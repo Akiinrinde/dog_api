@@ -1,7 +1,7 @@
 import "dotenv/config";
 import express, { NextFunction, Request, Response } from "express";
-import breedRoute from "./routes/breed.route";
-import dogRoute from "./routes/dog.route";
+import {breedRoute} from "./routes/breed.route";
+import {dogRoute} from "./routes/dog.route";
 import morgon from "morgan";
 import createHttpError, {isHttpError} from "http-errors";
 

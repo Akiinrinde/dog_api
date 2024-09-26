@@ -1,16 +1,18 @@
-import express from "express"
-import * as DogController from "../controllers/dog.controller"
+import express from "express";
+import { DogController } from "../controllers/dog.controller";
+
+const dogController = new DogController()
 
 const router = express()
-router.get("/", DogController.getDogs);
-router.get("/:id", DogController.getDog)
+router.get("/", dogController.getDogs);
+router.get("/:id", dogController.getDog)
 
-router.patch("/:id", DogController.updateDog)
+router.patch("/:id", dogController.updateDog)
 
-router.post("/", DogController.createDog);
+router.post("/", dogController.createDog);
 
-router.delete("/:id", DogController.deleteDog);
+router.delete("/:id", dogController.deleteDog);
 
-router.get("/findDogsByBreed/:id", DogController.findDogsbyBreed)
+router.get("/findDogsByBreed/:id", dogController.findDogsbyBreed)
 
-export default router
+export const dogRoute = router
